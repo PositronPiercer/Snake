@@ -82,7 +82,8 @@ def snake_update():
 				#print('food eaten')
 				snake_has_eaten_food=True
 				score+=1
-				print('Score : '+str(score))
+				sys.stdout.write('Score : {0}\r'.format(score))
+				sys.stdout.flush()
 				increase_snake_length()
 			elif obj=='a_snake':
 				print('snake bitten')
