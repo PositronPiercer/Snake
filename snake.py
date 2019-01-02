@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import time
+import sys
 
 import threading
 from pynput import keyboard
