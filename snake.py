@@ -46,7 +46,7 @@ def snake_update():
 				
 				if position[i][j] != -1:  # get the break points
 					direct=position[i][j]
-				#print(direct)
+		
 				#direction logic
 				if direct==0:
 					i=i-1   #left
@@ -92,12 +92,11 @@ def snake_update():
 				# snake has eaten a snake. Game over
 
 
-		   # print('displaying')
 			cv2.imshow("Snake",arena)
 			if cv2.waitKey(1)==27:
 				cv2.destroyAllWindows()
 				break
-				#time.sleep(0.05)
+				
 	print('Game Over')
 	print('Press esc to quit')
 
@@ -255,13 +254,12 @@ if __name__ =="__main__":
 	snake=[(snake_starting,starting_offset,1)]   # (x,y,direction)
 	for j in range(snake_starting-1,starting_offset,-1):
 		snake.append((j,10,1))
-	#print(len(snake))
+
 	# thread to update snake
 	snake_update_thread=threading.Thread(target=snake_update)
 	snake_update_thread.start()
 
-	#food_thread=threading.Thread(target=food_spawner(snake_has_eaten_food))
-	#food_thread.start()
+
 
 
 	with keyboard.Listener(
@@ -270,7 +268,6 @@ if __name__ =="__main__":
 	) as listener:
 		listener.join()
 		snake_update_thread.join()
-		#food_thread.join()
 
 
 
